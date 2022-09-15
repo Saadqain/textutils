@@ -6,29 +6,31 @@ export default function TextForm(props) {
 
     const [text, setText] = useState("");
 
-    useEffect(() => {  
-        
-    },[text]);
+    
 
-    const   handleUpClick = ()=> {
+    const   handleUpClick = (event)=> {
         //console.log("Uppercase was clicked" + text);
         let newText = text.toUpperCase();
         setText(text.toUpperCase());
+        event.preventDefault();
     }
-    const   handleLoClick = ()=> {
+    const   handleLoClick = (event)=> {
         //console.log("Uppercase was clicked" + text);
         let newText = text.toLowerCase();
         setText(newText);
+        event.preventDefault();
     }
-    const handleCopy = () => {
+    const handleCopy = (event) => {
       
         navigator.clipboard.writeText(text);
+        event.preventDefault();
         
     }
 
-    const handleExtraSpaces = () => {
+    const handleExtraSpaces = (event) => {
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "))
+        event.preventDefault();
     }
 
 
